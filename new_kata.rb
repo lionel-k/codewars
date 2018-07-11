@@ -9,7 +9,7 @@ puts "Link of the kata"
 kata_link = gets.chomp
 
 # create new kata_name
-Dir.mkdir(kata_name) unless File.exists?(kata_name)
+Dir.mkdir(kata_name) unless File.exist?(kata_name)
 
 # create lib folder
 Dir.mkdir("#{kata_name}/lib")
@@ -24,7 +24,7 @@ Dir.mkdir("#{kata_name}/spec")
 FileUtils.touch("#{kata_name}/spec/#{kata_name}_spec.rb")
 
 # create readme file with the link of the description
-File.open("#{kata_name}/README.md", 'w') {|f| f.write("Link: #{kata_link}") }
+File.open("#{kata_name}/README.md", 'w') { |f| f.write("Link: #{kata_link}") }
 
 # create default rakefile
 FileUtils.copy_file('sample/Rakefile', "#{kata_name}/Rakefile")
