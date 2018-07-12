@@ -1,16 +1,17 @@
-GOOD = [1, 2, 3, 3, 4, 10]
-EVIL = [1, 2, 2, 2, 3, 5, 10]
+GOOD_WORTH = [1, 2, 3, 3, 4, 10]
+EVIL_WORTH = [1, 2, 2, 2, 3, 5, 10]
+
+def compute_score(team, worth)
+  team_score = 0
+  team.split.each_with_index do |value, index|
+    team_score += value.to_i * worth[index]
+  end
+  team_score
+end
 
 def good_vs_evil(good, evil)
-  good_score = 0
-  good.split.each_with_index do |value, index|
-    good_score += value.to_i * GOOD[index]
-  end
-
-  evil_score = 0
-  evil.split.each_with_index do |value, index|
-    evil_score += value.to_i * EVIL[index]
-  end
+  good_score = compute_score(good, GOOD_WORTH)
+  evil_score = compute_score(evil, EVIL_WORTH)
 
   if good_score > evil_score
     'Good should triumph'
