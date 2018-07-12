@@ -1,30 +1,35 @@
 require 'fileutils'
 
+# ask numnber of the kata
+puts "Number of the kata"
+kata_number = gets.chomp
+
 # ask name of the kata
 puts "Name of the kata"
 kata_name = gets.chomp
+kata_dirname = "#{kata_number}-#{kata_name}"
 
 # ask the link of the kata
 puts "Link of the kata"
 kata_link = gets.chomp
 
-# create new kata_name
-Dir.mkdir(kata_name) unless File.exist?(kata_name)
+# create new kata_name directory
+Dir.mkdir(kata_dirname) unless File.exist?(kata_dirname)
 
 # create lib folder
-Dir.mkdir("#{kata_name}/lib")
+Dir.mkdir("#{kata_dirname}/lib")
 
 # create file name for the solution
-FileUtils.touch("#{kata_name}/lib/#{kata_name}.rb")
+FileUtils.touch("#{kata_dirname}/lib/#{kata_name}.rb")
 
 # create spec folder
-Dir.mkdir("#{kata_name}/spec")
+Dir.mkdir("#{kata_dirname}/spec")
 
 # create file name for the tests
-FileUtils.touch("#{kata_name}/spec/#{kata_name}_spec.rb")
+FileUtils.touch("#{kata_dirname}/spec/#{kata_name}_spec.rb")
 
 # create readme file with the link of the description
-File.open("#{kata_name}/README.md", 'w') { |f| f.write("Link: #{kata_link}") }
+File.open("#{kata_dirname}/README.md", 'w') { |f| f.write("Link: #{kata_link}") }
 
 # create default rakefile
-FileUtils.copy_file('sample/Rakefile', "#{kata_name}/Rakefile")
+FileUtils.copy_file('sample/Rakefile', "#{kata_dirname}/Rakefile")
