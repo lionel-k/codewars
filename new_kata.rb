@@ -1,16 +1,16 @@
 require 'fileutils'
 
 # ask numnber of the kata
-puts "Number of the kata"
+puts 'Number of the kata'
 kata_number = gets.chomp
 
 # ask name of the kata
-puts "Name of the kata"
+puts 'Name of the kata'
 kata_name = gets.chomp
 kata_dirname = "#{kata_number}-#{kata_name}"
 
 # ask the link of the kata
-puts "Link of the kata"
+puts 'Link of the kata'
 kata_link = gets.chomp
 
 # create new kata_name directory
@@ -29,7 +29,9 @@ Dir.mkdir("#{kata_dirname}/spec")
 FileUtils.touch("#{kata_dirname}/spec/#{kata_name}_spec.rb")
 
 # create readme file with the link of the description
-File.open("#{kata_dirname}/README.md", 'w') { |f| f.write("Link: #{kata_link}") }
+File.open("#{kata_dirname}/README.md", 'w') do |f|
+  f.write("Link: #{kata_link}")
+end
 
 # create default rakefile
 FileUtils.copy_file('sample/Rakefile', "#{kata_dirname}/Rakefile")
