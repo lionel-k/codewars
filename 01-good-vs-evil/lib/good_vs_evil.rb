@@ -1,5 +1,5 @@
-GOOD_WORTH = [1, 2, 3, 3, 4, 10]
-EVIL_WORTH = [1, 2, 2, 2, 3, 5, 10]
+GOOD_WORTH = [1, 2, 3, 3, 4, 10].freeze
+EVIL_WORTH = [1, 2, 2, 2, 3, 5, 10].freeze
 
 def compute_score(team, worth)
   team_score = 0
