@@ -27,7 +27,7 @@ describe 'Testing For Sum of Pairs' do
   end
 
   it 'should Test #5' do
-    expect(sum_pairs(l5, 10)).to eq([3, 7]) #, "First Match From Left REDUX!: ["+l5.join(", ")+"] should return [3, 7] for sum = 10 ")
+    expect(sum_pairs(l5, 10)).to eq([5, 5]) #, "First Match From Left REDUX!: ["+l5.join(", ")+"] should return [5, 5] for sum = 10 ")
   end
 
   it 'should Test #6' do
