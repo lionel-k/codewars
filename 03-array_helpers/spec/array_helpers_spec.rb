@@ -1,8 +1,9 @@
 require 'array_helpers'
 
-array = [1, 2, 3, 4, 5]
 
 describe 'Static Tests' do
+  array = [1, 2, 3, 4, 5]
+
   it 'should test #square method' do
     expect(array.square()).to eq([1, 4, 9, 16, 25])
   end
@@ -32,26 +33,27 @@ describe 'Static Tests' do
   end
 end
 
-# describe 'Random tests' do
-#   array = []
-#   while array.length < 20 do
-#     array.push(Test.random_number())
-#   end
-#   # hack to make the array average integer:
-#   array[-1] += (array.sum / array.size + 1) * array.size - array.sum
+describe 'Random tests' do
+  array = []
+  while array.length < 20 do
+    array.push(rand(0..2000))
+  end
+  # hack to make the array average integer:
+  array[-1] += (array.sum / array.size + 1) * array.size - array.sum
 
-#   it 'should even() and odd() correctly' do
-#     Test.assert_equals(array.odd().even(), [], 'odd() or even() returned wrong result')
-#     Test.assert_equals(array.odd().length + array.even().length, array.length, 'The count of odd and even values must be the total array length')
-#   end
+  it 'should even() and odd() correctly' do
+    expect(array.odd().even()).to eq([])
+    # 'The count of odd and even values must be the total array length'
+    expect(array.odd().length + array.even().length).to eq(array.length)
+  end
 
-#   it 'should work all together :)' do
-#     Test.assert_equals(array.square(), array.map { |v| v * v }, 'square() returned wrong result')
-#     Test.assert_equals(array.cube(), array.map { |v| v * v * v }, 'cube() returned wrong result')
-#     Test.assert_equals(array.even(), array.select { |v| v % 2 == 0 }, 'even() returned wrong result')
-#     Test.assert_equals(array.odd(), array.select { |v| v % 2 == 1 }, 'odd() returned wrong result')
-#     Test.assert_equals(array.sum(), array.reduce { |x, y| x + y }, 'sum() returned wrong result')
-#     Test.assert_equals(array.average(), array.sum() / array.length, 'average() returned wrong result')
-#   end
-# end
+  it 'should work all together :)' do
+    expect(array.square()).to eq(array.map { |v| v * v })
+    expect(array.cube()).to eq(array.map { |v| v * v * v })
+    expect(array.even()).to eq(array.select { |v| v % 2 == 0 })
+    expect(array.odd()).to eq(array.select { |v| v % 2 == 1 })
+    expect(array.sum()).to eq(array.reduce { |x, y| x + y })
+    expect(array.average()).to eq(array.sum() / array.length)
+  end
+end
 
