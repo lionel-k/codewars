@@ -39,14 +39,3 @@ def fold_array(array, runs)
   end
   result
 end
-
-# # input = [ 1, 2, 3, 4, 5, 6, 7 ]
-# # input = [ 1, 2, 3, 4, 5, 6 ]
-# # input = [ 1, 2, 3, 4, 5 ]
-# input = [1, 2, 3, 4]
-# # input = [ 1, 2, 3]
-# # input = [ 1, 2]
-# # input = [1]
-# print fold_array(input, 1)
-
-# print [[1,2,3], [4,5,6]].transpose.map {|x| x.reduce(:+)}
